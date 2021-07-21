@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html$if(lang)$ lang="$lang$"$endif$$if(dir)$ dir="$dir$"$endif$>
+  <head>
+    <title>$title$</title>
+    <meta charset='utf-8'>
+    <meta name="generator" content="pandoc">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+$for(author-meta)$
+    <meta name="author" content="$author-meta$">
+$endfor$
+$if(date-meta)$
+    <meta name="dcterms.date" content="$date-meta$">
+$endif$
+$if(description)$
+    <meta name="description" content="$description$">
+$endif$
+$if(tags)$
+    <meta name="keywords" content="$for(tags)$$tags$$sep$, $endfor$">
+$endif$
+    <meta property="og:type" content="website" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <link rel="stylesheet" href="./assets/stylesheets/style.css" type="text/css" />
+  </head>
+
+  <body>
+
+    <div class="grid-container">
+   
+    <header>
+      <h1>$title$</h1>
+      <div>
+            $if(author)$
+            <small>$author$</small>
+            $endif$
+            <time>
+                <small>$date$</small>
+            </time>
+      </div>
+    </header>
+
+    <!-- <button class="mobile-btn" -->
+    <!--         id="toMain"> -->
+    <!--         <a href="/">&#8592;</a> -->
+    <!-- </button> -->
+
+
+    $if(commitmsg)$
+    <section id="commit-msg">
+        <q>$commitmsg$</q>
+    </section>
+    $endif$
+
+    <!-- <button id="menu-open" --> 
+    <!--         class="mobile-btn" --> 
+    <!--         onClick="mobileMenuOpen()"> -->
+    <!--     &#9776; -->
+    <!-- </button> -->
+
+
+    $if(image)$
+    <img id="top-img" src="../static/$image$" />      
+    $endif$
+    $topNav$
+    
+    <div id="side-wrapper" class="mobile-collapse">
+        <button class="mobile-btn" 
+            id="menu-close" 
+            onclick="mobileMenuClose()">
+            &times;
+        </button>
+    $if(toc)$
+    <details id='toc-details'>
+        <summary>ToC</summary>
+        $toc$
+    </details>
+    $endif$
+
+    $sideNav$
+    </div>
+    
+    
+    <section id="main-content">
+        <div>
+            $for(include-before)$
+            $include-before$
+            $endfor$
+            $body$
+            $for(include-after)$
+            $include-after$
+            $endfor$
+        </div>
+    </section>
+    </div>
+  </body>
+</html>
+
+<!-- <script src="../static/git-blog.js" type="text/javascript"></script> -->
