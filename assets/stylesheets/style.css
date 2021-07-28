@@ -574,7 +574,7 @@ a:hover {
     display: flex;
     justify-content: center;
     overflow-y: scroll;
-    scrollbar-color: #444 #333;
+    scrollbar-color: #333 #444;
 }
 
 #main-content > div {
