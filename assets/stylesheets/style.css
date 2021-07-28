@@ -352,6 +352,11 @@ template {
  * #####################MYSTUFF########################
  */
 
+:root {
+    --main-bg-color: #333;
+    --secondary-bg-color: #444;
+    --main-txt-color: white;
+}
 
 .grid-container {
   display: grid;
@@ -370,7 +375,7 @@ html, body {
 
 body {
     height: 100vh;
-    background-color: #444;
+    background-color: var(--main-bg-color);
     color: white;
 }
 
@@ -404,7 +409,7 @@ code {
 
 p > code {
     color: #FFD6A0;
-    background-color: #444;
+    background-color: var(--main-bg-color);
     padding: 0 4px 0 4px;
     border-radius: 2px;
 
@@ -414,19 +419,19 @@ pre {
     padding: 1rem;
     border-radius: 4px;
     font-family: monospace;
-    background-color: #444;
+    background-color: var(--main-bg-color);
     width: max-content;
 }
 
 
 .active {
-    background-color: #333;
+    background-color: var(--secondary-bg-color);
 }
 
 header {
     margin-left: 2rem;
     grid-area: 1 / 1 / 2 / 3;
-    background-color: #444;
+    background-color: var(--main-bg-color);
 }
 
 header h1 {
@@ -434,7 +439,7 @@ header h1 {
 }
 
 #toc-btn {
-    background-color: #333;
+    background-color: var(--secondary-bg-color);
     margin: 1rem 0 0 auto;
     color: white;
     display: flex;
@@ -443,7 +448,7 @@ header h1 {
     /* grid-area: top-nav; */
     max-width: 4rem;
     font-size: 2rem;
-    border: 2px solid #333;
+    border: 2px solid var(--secondary-bg-color);
     border-radius: 4px;
 
 }
@@ -479,8 +484,8 @@ img {
     margin-left: auto;
     margin-right: 1rem;
     height: 8em;
-    border-left: solid 1rem #333;
-    border-right: solid 1rem #333;
+    border-left: solid 1rem var(--secondary-bg-color);
+    border-right: solid 1rem var(--secondary-bg-color);
 }
 
 nav > ul {
@@ -526,14 +531,16 @@ a:hover {
 }
 
 #side-wrapper {
+    background: var(--secondary-bg-color);
     direction: rtl;
     overflow-y: scroll;
-    scrollbar-color: #4b4f52 #2a2c2d;
+    scrollbar-color: var(--secondary-bg-color) var(--main-bg-color);
     grid-area: side-nav;
     margin: 0 0 0 2em; 
 }
 
 #toc-details {
+    background: var(--secondary-bg-color);
     direction: ltr;
     margin: 0 0 0 1rem;
     word-break: break-word;
@@ -568,13 +575,13 @@ a:hover {
     /* grid-area: 2 / 2 / 3 / 3; */
     grid-area: main-content;
     max-width: 100%;
-    background-color: #333;
+    background-color: var(--secondary-bg-color);
     padding: 1rem;
     margin: 0 0 0 1rem;
     display: flex;
     justify-content: center;
     overflow-y: scroll;
-    scrollbar-color: #333 #444;
+    scrollbar-color: var(--secondary-bg-color) var(--main-bg-color);
 }
 
 #main-content > div {
@@ -591,7 +598,7 @@ a:hover {
 }
 
 #toMain {
-    background-color: #333;
+    background-color: var(--secondary-bg-color);
     margin-left: auto;
     margin-top: 1rem;
     margin-right: 1rem;
@@ -602,7 +609,7 @@ a:hover {
     grid-area: legend;
     max-width: 4rem;
     font-size: 2rem;
-    border: 2px solid #333;
+    border: 2px solid var(--secondary-bg-color);
     border-radius: 4px;
 }
 
@@ -732,7 +739,7 @@ pre {
 
 .mobile-btn {
 
-    background-color: #333;
+    background-color: var(--secondary-bg-color);
     margin-left: auto;
     margin-top: 1rem;
     margin-right: 1rem;
@@ -743,13 +750,13 @@ pre {
     grid-area: legend;
     max-width: 4rem;
     font-size: 2rem;
-    border: 2px solid #333;
+    border: 2px solid var(--secondary-bg-color);
     border-radius: 4px;
 }
 
 
 #side-wrapper {
-    background-color: #444;
+    background-color: var(--main-bg-color);
     grid-column: 1;
     grid-row: 1/ span 2;
     display: none;
