@@ -356,6 +356,7 @@ template {
     --main-bg-color: #333;
     --secondary-bg-color: #444;
     --main-txt-color: lightgrey;
+    --highl-txt-color: #FAB57F;
 }
 
 .grid-container {
@@ -441,7 +442,7 @@ header h1 {
 #toc-btn {
     background-color: var(--secondary-bg-color);
     margin: 1rem 0 0 auto;
-    color: white;
+    color: var(--main-txt-color);
     display: flex;
     flex-direction: row;
     align-self: flex-start;
@@ -494,11 +495,11 @@ nav > ul {
 
 a {
     text-decoration: underline;
-    color: white;
+    color: var(--main-txt-color);
 }
 
 a:hover {
-    color: #FAB57F;
+    color: var(--highl-txt-color);
 }
 
 
@@ -548,11 +549,11 @@ a:hover {
 
 
 #toc-details a:hover + ul {
-    color: #FAB57F;
+    color: var(--highl-txt-color);
 }
 
 .nav-side {
-    color: white;
+    color: var(--main-txt-color);
     grid-area: side-nav;
 }
 
@@ -602,7 +603,7 @@ a:hover {
     margin-left: auto;
     margin-top: 1rem;
     margin-right: 1rem;
-    color: white;
+    color: var(--main-txt-color);
     display: flex;
     flex-direction: row;
     align-self: flex-start;
@@ -614,7 +615,7 @@ a:hover {
 }
 
 blockquote {
-    border-left: 1px solid white;
+    border-left: 1px solid var(--main-txt-color);
     margin-left: 3rem;
 }
 
@@ -643,7 +644,7 @@ blockquote > p {
 }
 
 .op {
-    color: white;
+    color: var(--main-txt-color);
 }
 
 .bu {
@@ -743,7 +744,7 @@ pre {
     margin-left: auto;
     margin-top: 1rem;
     margin-right: 1rem;
-    color: white;
+    color: var(--main-txt-color);
     display: flex;
     flex-direction: row;
     align-self: flex-start;
