@@ -355,12 +355,12 @@ template {
 :root {
     --main-bg-color: #333;
     --secondary-bg-color: #444;
-    --main-txt-color: white;
+    --main-txt-color: lightgrey;
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns: 20% 78% auto;
+  grid-template-columns: 23% 75% auto;
   grid-template-rows: 10vh 85vh 5vh;
   gap: 0 0;
   grid-template-areas:
@@ -376,7 +376,7 @@ html, body {
 body {
     height: 100vh;
     background-color: var(--main-bg-color);
-    color: white;
+    color: var(--main-txt-color);
 }
 
 .mobile-btn {
@@ -577,7 +577,7 @@ a:hover {
     max-width: 100%;
     background-color: var(--secondary-bg-color);
     padding: 1rem;
-    margin: 0 0 0 1rem;
+    margin: 0 0 0 0.1rem;
     display: flex;
     justify-content: center;
     overflow-y: scroll;
