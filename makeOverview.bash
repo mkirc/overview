@@ -6,4 +6,7 @@ pandoc --from markdown_github+smart+yaml_metadata_block+auto_identifiers+tex_mat
     --template='./assets/templates/page.html' \
     --self-contained \
     --mathjax\
+    --metadata date="$(date)" \
+    --metadata author='mkirc' \
+    --metadata title='tp2 overview' \
     --toc

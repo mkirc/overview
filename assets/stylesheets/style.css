@@ -573,14 +573,13 @@ a:hover {
     margin: 0 0 0 1rem;
     display: flex;
     justify-content: center;
+    overflow-y: scroll;
+    scrollbar-color: #444 #333;
 }
 
 #main-content > div {
     min-width: 0;
-    overflow: hidden;
-    overflow-y: scroll;
-    scrollbar-color: #444 #333;
-    /* scrollbar-width: none; */
+    /* overflow: hidden; */
 }
 
 #main-content h1 {
