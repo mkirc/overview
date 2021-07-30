@@ -359,6 +359,19 @@ template {
     --highl-txt-color: #FAB57F;
 }
 
+html, body {
+    font-family: Roboto, sans-serif;
+    font-size: large;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--main-bg-color);
+    color: var(--main-txt-color);
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: 23% 75% auto;
@@ -367,17 +380,6 @@ template {
   grid-template-areas:
     "legend top-nav ."
     "side-nav main-content .";
-}
-
-html, body {
-    font-family: Roboto, sans-serif;
-    font-size: large;
-}
-
-body {
-    height: 100vh;
-    background-color: var(--main-bg-color);
-    color: var(--main-txt-color);
 }
 
 .mobile-btn {
@@ -422,6 +424,10 @@ pre {
     font-family: monospace;
     background-color: var(--main-bg-color);
     width: max-content;
+}
+
+hr {
+    margin: 1em 0;
 }
 
 
@@ -499,7 +505,7 @@ a {
 }
 
 a:hover {
-    color: var(--highl-txt-color);
+    color: var(--highl-txt-color) !important;
 }
 
 
@@ -594,7 +600,7 @@ a:hover {
     text-align: center;
 }
 
-#main-content pre, #main-content p, #main-content ul { 
+#main-content pre, #main-content p, #main-content ul, #main-content ol { 
     margin: 0 2em;
 }
 
