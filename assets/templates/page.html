@@ -19,7 +19,7 @@ $if(tags)$
     <meta name="keywords" content="$for(tags)$$tags$$sep$, $endfor$">
 $endif$
     <meta property="og:type" content="website" />
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> -->
     <script id="MathJax-script" async
           src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -33,21 +33,22 @@ $endif$
    
     <header>
         <div>
-          <div>
-          <h1>$title$</h1>
-          <div>
+            <div>
+                <h1>$title$</h1>
+            <div>
                 $if(author)$
                 <small>$author$</small>
                 $endif$
                 <time>
                     <small>$date$</small>
                 </time>
-          </div>
-          </div>
-          <button id="toc-btn" class="mobile-btn" 
-                  onClick="toggleTOC()">
-              &#128214;
-          </button>
+            </div>
+        </div>
+            <button id="toc-btn"
+                    class="mobile-btn" 
+                    onClick="toggleTOC()">
+                &#128214;
+            </button>
         </div>
     </header>
 
@@ -56,19 +57,16 @@ $endif$
     <!--         <a href="/">&#8592;</a> -->
     <!-- </button> -->
 
-
     $if(commitmsg)$
     <section id="commit-msg">
         <q>$commitmsg$</q>
     </section>
     $endif$
  
-
-
-
     $if(image)$
-    <img id="top-img" src="../assets/images/$image$" />      
+        <img id="top-img" src="../assets/images/$image$" />      
     $endif$
+
     $topNav$
     
     <div id="side-wrapper" class="mobile-collapse">
@@ -79,13 +77,12 @@ $endif$
         </button>
     $if(toc)$
     <div id="toc-details">
-    $toc$
+      $toc$
     </div>
     $endif$
 
     $sideNav$
     </div>
-    
     
     <section id="main-content">
         <div>
