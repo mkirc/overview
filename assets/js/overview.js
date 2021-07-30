@@ -1,18 +1,24 @@
 
-const sideBarUls = Array.from(document.getElementById("toc-details").getElementsByTagName("ul"));
 
-sideBarUls.forEach((elm, idx) => {
-    if (idx > 0) {
-        elm.onmouseover = function(e) {
-            elm.previousSibling.style.color = "#FAB57F";
-        }
-        elm.onmouseout = function(e) {
-            elm.previousSibling.style.color = "lightgrey";
-        }
-    }
-});
-console.log(sideBarUls);
+function attachTocMouseEventListener() {
+        
+    const sideBarUls = Array.from(document.getElementById("toc-details").getElementsByTagName("ul"));
 
+    sideBarUls.forEach((elm, idx) => {
+        if (idx > 0) {
+            elm.addEventListener('mouseover', function(e) {
+                elm.previousSibling.style.color = "#FAB57F";
+            });
+            elm.addEventListener('mouseout', function(e) {
+                elm.previousSibling.style.color = "lightgrey";
+            });
+        }
+    });
+}
+
+
+
+attachTocMouseEventListener();
 
 function toggleTOC() {
     const elm = document.getElementById("main-content");
