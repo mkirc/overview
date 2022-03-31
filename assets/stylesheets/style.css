@@ -375,7 +375,7 @@ body {
 .grid-container {
   display: grid;
   grid-template-columns: 23% 75% auto;
-  grid-template-rows: 10vh 85vh 5vh;
+  grid-template-rows: 12vh 85vh 3vh;
   gap: 0 0;
   grid-template-areas:
     "legend top-nav ."
