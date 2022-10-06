@@ -393,7 +393,7 @@ body {
 
 p {
     max-width: 80ch;
-    padding: 4px; 
+    padding: 4px;
 }
 
 
@@ -420,9 +420,8 @@ p > code {
 
 pre {
     padding: 1rem;
-    border-radius: 4px;
     font-family: monospace;
-    background-color: var(--main-bg-color);
+    background-color: var(--secondary);
     width: max-content;
 }
 
@@ -445,7 +444,7 @@ header h1 {
     margin: 0.3em 0 0.2em 0;
 }
 
-#toc-btn {
+.header-btn {
     background-color: var(--secondary-bg-color);
     margin: 1rem 0 0 auto;
     color: var(--main-txt-color);

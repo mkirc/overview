@@ -1,7 +1,7 @@
 
 
 function attachTocMouseEventListener() {
-        
+
     const sideBarUls = Array.from(document.getElementById("toc-details").getElementsByTagName("ul"));
 
     sideBarUls.forEach((elm, idx) => {
@@ -30,4 +30,32 @@ function toggleTOC() {
         elm.style.gridArea = "main-content";
         elm.style.margin = '0 0 0 0.1rem';
     }
+}
+
+function toggleColorScheme() {
+    const root = document.querySelector(':root');
+    const darkColors = {
+        "--main-bg-color": "#333",
+        "--secondary-bg-color": "#444",
+        "--main-txt-color": "lightgrey",
+        "--highl-txt-color": "#FAB57F"
+    };
+    const lightColors = {
+        "--main-bg-color": "#E7E9EB",
+        "--secondary-bg-color": "white",
+        "--main-txt-color": "#444",
+        "--highl-txt-color": "#FAB57F"
+    };
+    let rs = getComputedStyle(root);
+
+    if ( rs.getPropertyValue('--main-txt-color') == 'lightgrey') {
+        for (const key of Object.keys(lightColors)) {
+            root.style.setProperty(key, lightColors[key])
+        }
+    } else if ( rs.getPropertyValue('--main-txt-color') == '#444') {
+        for (const key of Object.keys(darkColors)) {
+            root.style.setProperty(key, darkColors[key])
+        }
+    }
+
 }
