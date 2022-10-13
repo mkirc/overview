@@ -353,9 +353,9 @@ template {
  */
 
 :root {
-    --main-bg-color: #333;
-    --secondary-bg-color: #444;
-    --main-txt-color: lightgrey;
+    --main-bg-color: #E7E9EB;
+    --secondary-bg-color: white;
+    --main-txt-color: #444;
     --highl-txt-color: #FAB57F;
 }
 
@@ -595,11 +595,26 @@ a:hover {
     /* overflow: hidden; */
 }
 
+.definition {
+    background-color: aquamarine;
+    text-align: center;
+    color: #444;
+    padding: 1em;
+    border: 1px solid darkcyan;
+    font-weight: bold;
+    margin-bottom: 1em !important;
+}
+
+
 #main-content h1 {
     text-align: center;
 }
 
-#main-content pre, #main-content p, #main-content ul, #main-content ol { 
+#main-content pre {
+    margin: auto;
+}
+
+#main-content p, #main-content ul, #main-content ol {
     margin: 0 2em;
 }
 
