@@ -66,16 +66,16 @@ $endif$
         <q>$commitmsg$</q>
     </section>
     $endif$
- 
+
     $if(image)$
-        <img id="top-img" src="../assets/images/$image$" />      
+        <img id="top-img" src="../assets/images/$image$" />
     $endif$
 
     $topNav$
-    
+
     <div id="side-wrapper" class="mobile-collapse">
-        <button class="mobile-btn" 
-            id="menu-close" 
+        <button class="mobile-btn"
+            id="menu-close"
             onclick="mobileMenuClose()">
             &times;
         </button>
@@ -87,18 +87,18 @@ $endif$
 
     $sideNav$
     </div>
-    
-    <section id="main-content">
-        <div>
-            $for(include-before)$
-            $include-before$
-            $endfor$
-            $body$
-            $for(include-after)$
-            $include-after$
-            $endfor$
-        </div>
-    </section>
+
+<section id="main-content">
+<div>
+$for(include-before)$
+$include-before$
+$endfor$
+$body$
+$for(include-after)$
+$include-after$
+$endfor$
+</div>
+</section>
     </div>
   </body>
 </html>
