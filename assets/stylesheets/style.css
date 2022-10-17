@@ -357,6 +357,7 @@ template {
     --secondary-bg-color: white;
     --main-txt-color: #444;
     --highl-txt-color: #FAB57F;
+    --highl-def-color: aquamarine;
 }
 
 html, body {
@@ -423,6 +424,10 @@ pre {
     font-family: monospace;
     background-color: var(--secondary);
     width: max-content;
+}
+
+pre.ditaa {
+    display: none;
 }
 
 hr {
@@ -596,9 +601,9 @@ a:hover {
 }
 
 .definition {
-    background-color: aquamarine;
+    background-color: var(--highl-def-color);
     text-align: center;
-    color: #444;
+    color: var(--main-txt-color);
     padding: 1em;
     border: 1px solid darkcyan;
     font-weight: bold;
