@@ -1,18 +1,44 @@
 
+const darkColors = {
+    "--main-bg-color": "#333",
+    "--secondary-bg-color": "#444",
+    "--main-txt-color": "lightgrey",
+    "--highl-txt-color": "#FAB57F",
+    "--highl-def-color": "darkslategrey"
+};
+const lightColors = {
+    "--main-bg-color": "#E7E9EB",
+    "--secondary-bg-color": "white",
+    "--main-txt-color": "#444",
+    "--highl-txt-color": "#FAB57F",
+    "--highl-def-color": "aquamarine"
+};
 
 function attachTocMouseEventListener() {
 
     const sideBarUls = Array.from(document.getElementById("toc-details").getElementsByTagName("ul"));
+    const root = document.querySelector(':root');
+    let rs = getComputedStyle(root);
 
     sideBarUls.forEach((elm, idx) => {
         if (idx > 0) {
             elm.addEventListener('mouseover', function(e) {
-                elm.previousSibling.style.color = "#FAB57F";
+                elm.previousElementSibling.style.color = rs.getPropertyValue('--highl-txt-color');
             });
             elm.addEventListener('mouseout', function(e) {
-                elm.previousSibling.style.color = "lightgrey";
+                elm.previousElementSibling.style.color = rs.getPropertyValue('--main-txt-color');
             });
         }
+    });
+}
+
+function repaintAllTocULs() {
+
+    const sideBarUls = Array.from(document.getElementById("toc-details").getElementsByTagName("ul"));
+    const root = document.querySelector(':root');
+    let rs = getComputedStyle(root);
+    sideBarUls.forEach((elm, idx) => {
+        elm.style.color = rs.getPropertyValue('--main-txt-color');
     });
 }
 
@@ -34,18 +60,6 @@ function toggleTOC() {
 
 function toggleColorScheme() {
     const root = document.querySelector(':root');
-    const darkColors = {
-        "--main-bg-color": "#333",
-        "--secondary-bg-color": "#444",
-        "--main-txt-color": "lightgrey",
-        "--highl-txt-color": "#FAB57F"
-    };
-    const lightColors = {
-        "--main-bg-color": "#E7E9EB",
-        "--secondary-bg-color": "white",
-        "--main-txt-color": "#444",
-        "--highl-txt-color": "#FAB57F"
-    };
     let rs = getComputedStyle(root);
 
     if ( rs.getPropertyValue('--main-txt-color') == 'lightgrey') {
@@ -57,5 +71,6 @@ function toggleColorScheme() {
             root.style.setProperty(key, darkColors[key])
         }
     }
+    repaintAllTocULs();
 
 }
