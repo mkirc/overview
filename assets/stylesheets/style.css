@@ -375,8 +375,8 @@ body {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 23% 75% auto;
-  grid-template-rows: 12vh 85vh 3vh;
+  grid-template-columns: 20vw auto 1vw;
+  grid-template-rows: 10vh 88vh 2vh;
   gap: 0 0;
   grid-template-areas:
     "legend top-nav ."
@@ -547,13 +547,13 @@ a:hover {
     overflow-y: scroll;
     scrollbar-color: var(--secondary-bg-color) var(--main-bg-color);
     grid-area: side-nav;
-    margin: 0 0 0 2em; 
+    margin: 0 0 0 1vw; 
 }
 
 #toc-details {
     background: var(--secondary-bg-color);
     direction: ltr;
-    margin: 0 0 0 1rem;
+    margin: 0 0 0 1vw;
     word-break: break-word;
 }
 

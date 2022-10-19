@@ -34,10 +34,10 @@ function attachTocMouseEventListener() {
 
 function repaintAllTocULs() {
 
-    const sideBarUls = Array.from(document.getElementById("toc-details").getElementsByTagName("ul"));
+    const sideBarLinks = Array.from(document.getElementById("toc-details").getElementsByTagName("a"));
     const root = document.querySelector(':root');
     let rs = getComputedStyle(root);
-    sideBarUls.forEach((elm, idx) => {
+    sideBarLinks.forEach((elm, idx) => {
         elm.style.color = rs.getPropertyValue('--main-txt-color');
     });
 }
@@ -47,14 +47,18 @@ function repaintAllTocULs() {
 attachTocMouseEventListener();
 
 function toggleTOC() {
-    const elm = document.getElementById("main-content");
-    let style = window.getComputedStyle(elm).getPropertyValue('grid-column-start');
-    if (style == 'main-content') {
-        elm.style.gridArea = '2 / 1 / 3 / 3'
-        elm.style.margin = '0 0 0 2em';
-    } else {
-        elm.style.gridArea = "main-content";
-        elm.style.margin = '0 0 0 0.1rem';
+    const grid = document.querySelector(".grid-container");
+    let gs = getComputedStyle(grid);
+    const toc = document.getElementById("side-wrapper");
+    let ts = getComputedStyle(toc);
+    if ( ts.getPropertyValue('display') == 'block' ) {
+
+        toc.style.setProperty('display', 'none');
+        grid.style.setProperty('grid-template-columns', '1vw auto 1vw');
+
+    } else if  ( ts.getPropertyValue('display') == 'none' ) {
+        toc.style.setProperty('display', 'block');
+        grid.style.setProperty('grid-template-columns', '20vw auto 1vw');
     }
 }
 
