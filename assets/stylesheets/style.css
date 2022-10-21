@@ -358,6 +358,11 @@ template {
     --main-txt-color: #444;
     --highl-txt-color: #FAB57F;
     --highl-def-color: aquamarine;
+    --side-nav-width-init: 20vw;
+    --side-nav-width-toggle: 1vw;
+    --toc-visible-init: block;
+    --toc-visible-toggle: none;
+    --toc-visible: toggle;
 }
 
 html, body {
@@ -375,7 +380,7 @@ body {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 20vw auto 1vw;
+  grid-template-columns: var(--side-nav-width-init) auto 1vw;
   grid-template-rows: 10vh 88vh 2vh;
   gap: 0 0;
   grid-template-areas:
@@ -451,7 +456,7 @@ header h1 {
 
 .header-btn {
     background-color: var(--secondary-bg-color);
-    margin: 1rem 0 0 auto;
+    margin: 1rem 0 0 1rem;
     color: var(--main-txt-color);
     display: flex;
     flex-direction: row;
@@ -472,12 +477,12 @@ header h1 {
 header > div {
     display: flex;
     flex-direction: row;
-    justify-items: between;
 }
 
 header > div > div {
     display: flex;
     flex-direction: column;
+    margin-right: auto;
 }
 
 #commit-msg {
@@ -721,80 +726,17 @@ table {
 }
 
 
+
 @media only screen and (max-width: 1024px) {
+    :root {
+        --side-nav-width-init: 1vw;
+        --side-nav-width-toggle: 50vw;
+        --toc-visible-init: none;
+        --toc-visible-toggle: block;
+        --toc-visible: toggle;
+    }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 10rem auto;
-  grid-template-areas:
-    "legend"
-    "main-content";
+    #side-wrapper {
+        display: none;
+    }
 }
-
-pre {
-    overflow: scroll;
-    width: auto;
-}
-
-#main-content pre, #main-content p, #main-content ul, #main-content h3 {
-    margin-left: 0;
-    margin-right: 0;
-}
-
-
-.mobile-btn {
-    display: block;
-}
-
-#toMain {
-    margin-right: 6rem;
-}
-
-#commit-msg {
-    grid-area: legend;
-    margin: auto auto 4rem auto;
-}
-
-.nav-top {
-    grid-area: legend;
-    display: flex;
-    flex-direction: row;
-    align-self: flex-end;
-}
-
-.mobile-btn {
-
-    background-color: var(--secondary-bg-color);
-    margin-left: auto;
-    margin-top: 1rem;
-    margin-right: 1rem;
-    color: var(--main-txt-color);
-    display: flex;
-    flex-direction: row;
-    align-self: flex-start;
-    grid-area: legend;
-    max-width: 4rem;
-    font-size: 2rem;
-    border: 2px solid var(--secondary-bg-color);
-    border-radius: 4px;
-}
-
-
-#side-wrapper {
-    background-color: var(--main-bg-color);
-    grid-column: 1;
-    grid-row: 1/ span 2;
-    display: none;
-    height: 100%;
-    z-index: 2;
-}  
-.nav-side > ul > li {
-    margin-right: 2rem;
-    padding: 4px 4px 8px 4px;
-    border-radius: 4px;
-}
-
-
-}
-
