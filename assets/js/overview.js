@@ -44,7 +44,6 @@ function toggleTOC() {
     let toc_width_toggle = rs.getPropertyValue('--side-nav-width-' + toc_visible);
     let toc_visible_toggle = rs.getPropertyValue('--toc-visible-' + toc_visible);
 
-    console.log(toc_width_toggle)
 
     const grid = document.querySelector(".grid-container");
 
@@ -57,7 +56,7 @@ function toggleTOC() {
     if (toc_visible == 'toggle') {
         root.style.setProperty('--toc-visible', 'init');
     } else if (toc_visible == 'init') {
-        root.style.setProperty('--toc-visible', 'toggle');        
+        root.style.setProperty('--toc-visible', 'toggle');
     }
 
 
@@ -75,7 +74,6 @@ function setInitialColorScheme() {
 
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    
     if ( localStorage.getItem('color-mode') === 'light' ) {
         reColorAll(lightColors);
     } else if ( prefersDark || localStorage.getItem('color-mode') === 'dark' ) {
