@@ -73,9 +73,12 @@ function reColorAll(colorScheme) {
 
 function setInitialColorScheme() {
 
-    const result = window.matchMedia('(prefers-color-scheme: dark)');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    if (result.matches) {
+    
+    if ( localStorage.getItem('color-mode') === 'light' ) {
+        reColorAll(lightColors);
+    } else if ( prefersDark || localStorage.getItem('color-mode') === 'dark' ) {
         reColorAll(darkColors);
     }
 }
@@ -88,8 +91,10 @@ function toggleColorScheme() {
 
     if ( rs.getPropertyValue('--main-txt-color') == 'lightgrey') {
         reColorAll(lightColors);
+        localStorage.setItem("color-mode", "light")
     } else if ( rs.getPropertyValue('--main-txt-color') == '#444') {
         reColorAll(darkColors);
+        localStorage.setItem("color-mode", "dark")
     }
     repaintAllTocULs();
 
