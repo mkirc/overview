@@ -558,8 +558,11 @@ a:hover {
 #toc-details {
     background: var(--secondary-bg-color);
     direction: ltr;
-    margin: 0 0 0 1vw;
     word-break: break-word;
+}
+
+#toc-details ul {
+    list-style-type: none;
 }
 
 

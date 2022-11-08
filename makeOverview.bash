@@ -27,7 +27,8 @@ run_pandoc(){
         --metadata date="$(date)" \
         --metadata author="$USER" \
         --metadata title=${_arg_md_file_path%%.*} \
-        --toc
+        --toc \
+        --number-sections
 
 }
 
