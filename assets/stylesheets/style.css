@@ -657,7 +657,13 @@ blockquote > p {
     margin-left: 0;
 }
 
-/* MathMl section */
+/* MathJax section */
+
+
+mjx-container[display="block"] {
+  display: block;
+  margin: 1em 0;
+}
 
 math {
     font-weight: bold;
