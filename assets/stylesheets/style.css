@@ -657,6 +657,12 @@ blockquote > p {
     margin-left: 0;
 }
 
+/* MathMl section */
+
+math {
+    font-weight: bold;
+}
+
 /* code highlight section */
 
 .sourceCode > a {
