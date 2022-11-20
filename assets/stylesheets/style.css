@@ -356,7 +356,7 @@ template {
     --main-bg-color: #E7E9EB;
     --secondary-bg-color: white;
     --main-txt-color: #444;
-    --highl-txt-color: #FAB57F;
+    --highl-txt-color: aquamarine;
     --highl-def-color: aquamarine;
     --side-nav-width-init: 20vw;
     --side-nav-width-toggle: 1vw;
@@ -513,7 +513,7 @@ a {
     color: var(--main-txt-color);
 }
 
-a:hover {
+a:focus, a:hover {
     color: var(--highl-txt-color) !important;
 }
 

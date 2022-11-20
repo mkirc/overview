@@ -3,14 +3,12 @@ const darkColors = {
     "--main-bg-color": "#333",
     "--secondary-bg-color": "#444",
     "--main-txt-color": "lightgrey",
-    "--highl-txt-color": "#FAB57F",
     "--highl-def-color": "darkslategrey"
 };
 const lightColors = {
     "--main-bg-color": "#E7E9EB",
     "--secondary-bg-color": "white",
     "--main-txt-color": "#444",
-    "--highl-txt-color": "#FAB57F",
     "--highl-def-color": "aquamarine"
 };
 

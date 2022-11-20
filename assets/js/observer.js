@@ -34,27 +34,15 @@ function handleIntersect(entries, observer) {
             if (isVisible(entry)) {
                 elm = entry.target;
                 currentlyVisibleEntries.push(elm);
-
-                if (visibleInUpperQuarter(entry)) {
-
-                    console.log('top')
-                    console.log(elm)
-
-                    scrollTOCToEntry(elm.id);
-                }
-                console.log('in');
-                console.log(entry);
             }
         } else {
             const index = currentlyVisibleEntries.indexOf(entry.target);
             if (index >= 0) {
-                console.log('out');
-                console.log(entry);
-                console.log(index);
                 currentlyVisibleEntries.splice(index, 1);
             }
         }
     });
+    scrollTOCToElementID(currentlyVisibleEntries.at(-1).id);
 };
 
 function isVisible(entry) {
@@ -82,14 +70,11 @@ function visibleInUpperQuarter(entry) {
     }
 }
 
-function setWindowHash(hashString) {
-    window.location.hash = '#' + hashString;
-}
-
-function scrollTOCToEntry(hashString) {
+function scrollTOCToElementID(hashString) {
     let selector = '#toc-details a[href="#' + hashString + '"]';
-    document.querySelector(selector).scrollIntoView(
-        {behaviour: 'smooth', block: 'start'}
+    let elm = document.querySelector(selector)
+    elm.scrollIntoView(
+        { behavior: "smooth", block: "start" }
     );
 }
 
