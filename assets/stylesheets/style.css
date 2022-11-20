@@ -553,6 +553,7 @@ a:hover {
     scrollbar-color: var(--secondary-bg-color) var(--main-bg-color);
     grid-area: side-nav;
     margin: 0 0 0 1vw; 
+    padding-top: 1em;
 }
 
 #toc-details {
@@ -562,6 +563,7 @@ a:hover {
 }
 
 #toc-details ul {
+    margin: unset;
     list-style-type: none;
 }
 
