@@ -26,9 +26,13 @@ function createObserver(elements) {
 }
 
 let currentlyVisibleEntries = []
+let current;
+let previous;
 
 function handleIntersect(entries, observer) {
+
     let elm;
+
     entries.forEach(entry => {
         if(entry.isIntersecting) {
             if (isVisible(entry)) {
@@ -42,8 +46,66 @@ function handleIntersect(entries, observer) {
             }
         }
     });
-    scrollTOCToElementID(currentlyVisibleEntries.at(-1).id);
+
+    current = currentlyVisibleEntries.at(-1)
+
+    if (current) {
+
+        if (previous) {
+            unhighlightTOCElements(previous.id);
+        }
+
+        highlightTOCElements(current.id);
+        scrollTOCToElementID(current.id);
+
+        previous = current;
+    }
+
+
 };
+
+function highlightTOCElements(elmId) {
+
+    let elm = getTOCLinkForId(elmId); 
+
+    elm.classList.add("highl-txt-obs");
+
+    let parents = getParents(elm);
+
+    parents.forEach((_elm, idx) => {
+        if (idx > 0 && _elm.parentNode.id != 'toc-details' && _elm.tagName == 'UL') {
+            // let link = _elm.querySelector('a');
+            // link.classList.add("highl-txt-obs");
+            _elm.previousElementSibling.classList.add("highl-txt-obs");
+        }
+    });
+}
+
+function unhighlightTOCElements(elmId) {
+
+    let elm = getTOCLinkForId(elmId); 
+
+    elm.classList.remove("highl-txt-obs");
+
+    let parents = getParents(elm);
+
+    parents.forEach((_elm, idx) => {
+        if (idx > 0 && _elm.parentNode.id != 'toc-details' && _elm.tagName == 'UL') {
+            // let link = _elm.querySelector('a');
+            // link.classList.remove("highl-txt-obs");
+            _elm.previousElementSibling.classList.remove("highl-txt-obs");
+        }
+    });
+}
+
+function getParents(elm) {
+  var parents = [];
+  while(elm.parentNode && elm.id != 'toc-details') {
+    elm = elm.parentNode;
+    parents.push(elm);
+  }
+  return parents;
+}
 
 function isVisible(entry) {
 
@@ -70,9 +132,13 @@ function visibleInUpperQuarter(entry) {
     }
 }
 
-function scrollTOCToElementID(hashString) {
-    let selector = '#toc-details a[href="#' + hashString + '"]';
-    let elm = document.querySelector(selector)
+function getTOCLinkForId(id) {
+    let selector = '#toc-details a[href="#' + id + '"]';
+    return document.querySelector(selector)
+}
+
+function scrollTOCToElementID(elmId) {
+    let elm = getTOCLinkForId(elmId); 
     elm.scrollIntoView(
         { behavior: "smooth", block: "start" }
     );

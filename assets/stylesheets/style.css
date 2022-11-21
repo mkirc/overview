@@ -10,7 +10,7 @@
     --main-bg-color: #E7E9EB;
     --secondary-bg-color: white;
     --main-txt-color: #444;
-    --highl-txt-color: darkturquoise;
+    --highl-txt-color: mediumaquamarine;
     --highl-def-color: aquamarine;
 }
 
@@ -170,7 +170,7 @@ a {
     color: var(--main-txt-color);
 }
 
-a:focus, a:hover, .highl-txt {
+a:focus, a:hover, .highl-txt, .highl-txt-obs {
     color: var(--highl-txt-color) !important;
 }
 
