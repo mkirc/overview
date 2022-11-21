@@ -21,8 +21,6 @@ function setInitialColorScheme() {
 function attachTocMouseEventListeners() {
 
     const sideBarUls = document.querySelectorAll('#toc-details ul');
-    const root = document.querySelector(':root');
-    let rs = getComputedStyle(root);
 
     sideBarUls.forEach((elm, idx) => {
         if (idx > 0) {
@@ -67,8 +65,6 @@ function toggleTOC() {
 
 
 function toggleColorScheme() {
-    const root = document.querySelector(':root');
-    let rs = getComputedStyle(root);
 
     if ( rs.getPropertyValue('--main-txt-color') == 'lightgrey') {
         document.documentElement.setAttribute('color-mode', 'light')
