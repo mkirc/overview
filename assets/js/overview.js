@@ -66,10 +66,10 @@ function toggleTOC() {
 
 function toggleColorScheme() {
 
-    if ( rs.getPropertyValue('--main-txt-color') == 'lightgrey') {
+    if ( document.documentElement.getAttribute('color-mode') == 'dark' ) {
         document.documentElement.setAttribute('color-mode', 'light')
         localStorage.setItem("color-mode", "light")
-    } else if ( rs.getPropertyValue('--main-txt-color') == '#444') {
+    } else if (  document.documentElement.getAttribute('color-mode') == 'light' ) {
         document.documentElement.setAttribute('color-mode', 'dark')
         localStorage.setItem("color-mode", "dark")
     }
@@ -82,6 +82,7 @@ function repaintAllTocULs() {
     const sideBarLinks = document.querySelectorAll("#toc-details a");
     const root = document.querySelector(':root');
     let rs = getComputedStyle(root);
+
     sideBarLinks.forEach((elm, idx) => {
         elm.style.color = rs.getPropertyValue('--main-txt-color');
     });
