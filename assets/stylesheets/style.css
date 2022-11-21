@@ -1,14 +1,25 @@
 :root {
-    --main-bg-color: #E7E9EB;
-    --secondary-bg-color: white;
-    --main-txt-color: #444;
-    --highl-txt-color: aquamarine;
-    --highl-def-color: aquamarine;
     --side-nav-width-init: 20vw;
     --side-nav-width-toggle: 1vw;
     --toc-visible-init: block;
     --toc-visible-toggle: none;
     --toc-visible: toggle;
+}
+
+:root[color-mode="light"] {
+    --main-bg-color: #E7E9EB;
+    --secondary-bg-color: white;
+    --main-txt-color: #444;
+    --highl-txt-color: darkturquoise;
+    --highl-def-color: aquamarine;
+}
+
+:root[color-mode="dark"] {
+    --main-bg-color: #333;
+    --secondary-bg-color: #444;
+    --main-txt-color: lightgrey;
+    --highl-txt-color: aquamarine;
+    --highl-def-color: darkslategrey;
 }
 
 html, body {
@@ -159,7 +170,7 @@ a {
     color: var(--main-txt-color);
 }
 
-a:focus, a:hover {
+a:focus, a:hover, .highl-txt {
     color: var(--highl-txt-color) !important;
 }
 
@@ -198,7 +209,7 @@ a:focus, a:hover {
     overflow-y: scroll;
     scrollbar-color: var(--secondary-bg-color) var(--main-bg-color);
     grid-area: side-nav;
-    margin: 0 0 0 1vw; 
+    margin: 0 0 0 1vw;
     padding-top: 1em;
 }
 

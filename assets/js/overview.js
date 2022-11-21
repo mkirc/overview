@@ -1,35 +1,40 @@
 
-const darkColors = {
-    "--main-bg-color": "#333",
-    "--secondary-bg-color": "#444",
-    "--main-txt-color": "lightgrey",
-    "--highl-def-color": "darkslategrey"
-};
-const lightColors = {
-    "--main-bg-color": "#E7E9EB",
-    "--secondary-bg-color": "white",
-    "--main-txt-color": "#444",
-    "--highl-def-color": "aquamarine"
-};
+setInitialColorScheme();
 
-function attachTocMouseEventListener() {
+window.addEventListener("load", function(e) {
+    attachTocMouseEventListeners();
 
-    const sideBarUls = Array.from(document.getElementById("toc-details").getElementsByTagName("ul"));
+})
+
+function setInitialColorScheme() {
+
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if ( localStorage.getItem('color-mode') === 'light' ) {
+        document.documentElement.setAttribute('color-mode', 'light')
+    } else if ( prefersDark || localStorage.getItem('color-mode') === 'dark' ) {
+        document.documentElement.setAttribute('color-mode', 'dark')
+    }
+}
+
+
+function attachTocMouseEventListeners() {
+
+    const sideBarUls = document.querySelectorAll('#toc-details ul');
     const root = document.querySelector(':root');
     let rs = getComputedStyle(root);
 
     sideBarUls.forEach((elm, idx) => {
         if (idx > 0) {
             elm.addEventListener('mouseover', function(e) {
-                elm.previousElementSibling.style.color = rs.getPropertyValue('--highl-txt-color');
+                elm.previousElementSibling.classList.add("highl-txt");
             });
             elm.addEventListener('mouseout', function(e) {
-                elm.previousElementSibling.style.color = rs.getPropertyValue('--main-txt-color');
+                elm.previousElementSibling.classList.remove("highl-txt")
             });
         }
     });
 }
-attachTocMouseEventListener();
 
 
 
@@ -60,36 +65,16 @@ function toggleTOC() {
 
 }
 
-function reColorAll(colorScheme) {
-
-    const root = document.querySelector(':root');
-    for (const key of Object.keys(colorScheme)) {
-        root.style.setProperty(key, colorScheme[key])
-    }
-}
-
-function setInitialColorScheme() {
-
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if ( localStorage.getItem('color-mode') === 'light' ) {
-        reColorAll(lightColors);
-    } else if ( prefersDark || localStorage.getItem('color-mode') === 'dark' ) {
-        reColorAll(darkColors);
-    }
-}
-
-setInitialColorScheme();
 
 function toggleColorScheme() {
     const root = document.querySelector(':root');
     let rs = getComputedStyle(root);
 
     if ( rs.getPropertyValue('--main-txt-color') == 'lightgrey') {
-        reColorAll(lightColors);
+        document.documentElement.setAttribute('color-mode', 'light')
         localStorage.setItem("color-mode", "light")
     } else if ( rs.getPropertyValue('--main-txt-color') == '#444') {
-        reColorAll(darkColors);
+        document.documentElement.setAttribute('color-mode', 'dark')
         localStorage.setItem("color-mode", "dark")
     }
     repaintAllTocULs();
@@ -98,7 +83,7 @@ function toggleColorScheme() {
 
 function repaintAllTocULs() {
 
-    const sideBarLinks = Array.from(document.getElementById("toc-details").getElementsByTagName("a"));
+    const sideBarLinks = document.querySelectorAll("#toc-details a");
     const root = document.querySelector(':root');
     let rs = getComputedStyle(root);
     sideBarLinks.forEach((elm, idx) => {
