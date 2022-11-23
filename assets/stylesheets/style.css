@@ -74,7 +74,7 @@ code {
 }
 
 p > code {
-    color: #FFD6A0;
+    color: var(--highl-txt-color);
     background-color: var(--main-bg-color);
     padding: 0 4px 0 4px;
     border-radius: 2px;
@@ -343,7 +343,7 @@ math {
 }
 
 
-.kw { 
+.kw {
     color: #D46A6A;
 }
 
@@ -355,7 +355,7 @@ math {
     color: #7F98C0;
 }
 
-.dt { 
+.dt {
     color: lightblue;
 }
 
@@ -363,33 +363,33 @@ math {
     color: #D46A6A;
 }
 
-.dv,  .bn,  .fl { 
+.dv,  .bn,  .fl {
     color: #D336;
 }
 
-.ch { 
+.ch {
     color: #DC32;
 }
 
-.st { 
-    color: blue; 
+.st {
+    color: blue;
 }
 
-.co { 
-color: #93A1A1; 
+.co {
+color: #93A1A1;
 }
-.ot { 
-color: #A578; 
+.ot {
+color: #A578;
 }
-.al { 
-color: #CB4B; font-weight: bold; 
+.al {
+color: #CB4B; font-weight: bold;
 }
-.fu { 
-color: #268B; 
+.fu {
+color: #268B;
 }
 
-.er { 
-color: #D30102; font-weight: bold; 
+.er {
+color: #D30102; font-weight: bold;
 }
 
 /* /code highlight section */
