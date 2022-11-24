@@ -34,35 +34,18 @@ function attachTocMouseEventListeners() {
     });
 }
 
-
-
 function toggleTOC() {
-    const root = document.querySelector(':root');
-    let rs = getComputedStyle(root);
 
-    let toc_visible = rs.getPropertyValue('--toc-visible')
+    const grid = document.getElementById('grid-container');
 
-    let toc_width_toggle = rs.getPropertyValue('--side-nav-width-' + toc_visible);
-    let toc_visible_toggle = rs.getPropertyValue('--toc-visible-' + toc_visible);
-
-
-    const grid = document.querySelector(".grid-container");
-
-    const toc = document.getElementById("side-wrapper");
-    let ts = getComputedStyle(toc);
-
-    toc.style.setProperty('display', toc_visible_toggle);
-    grid.style.setProperty('grid-template-columns', toc_width_toggle + ' auto 1vw');
-
-    if (toc_visible == 'toggle') {
-        root.style.setProperty('--toc-visible', 'init');
-    } else if (toc_visible == 'init') {
-        root.style.setProperty('--toc-visible', 'toggle');
+    if (grid.getAttribute('toc-visible') == 'init') {
+        grid.setAttribute('toc-visible', 'toggle')
+    } else if (grid.getAttribute('toc-visible') == 'toggle') {
+        grid.setAttribute('toc-visible', 'init')
     }
 
 
 }
-
 
 function toggleColorScheme() {
 
