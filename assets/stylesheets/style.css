@@ -8,7 +8,8 @@
 
 :root[color-mode="light"] {
     --main-bg-color: #E7E9EB;
-    --secondary-bg-color: white;
+    --secondary-bg-color: whitesmoke;
+    --tertiary-bg-color: white;
     --main-txt-color: #444;
     --highl-txt-color: mediumaquamarine;
     --highl-def-color: aquamarine;
@@ -17,6 +18,7 @@
 :root[color-mode="dark"] {
     --main-bg-color: #333;
     --secondary-bg-color: #444;
+    --tertiary-bg-color: #555;
     --main-txt-color: lightgrey;
     --highl-txt-color: aquamarine;
     --highl-def-color: darkslategrey;
@@ -38,7 +40,7 @@ body {
 .grid-container {
   display: grid;
   grid-template-columns: var(--side-nav-width-init) auto 1vw;
-  grid-template-rows: 10vh 88vh 2vh;
+  grid-template-rows: 5em calc(100vh - 6em) 1em;
   gap: 0 0;
   grid-template-areas:
     "legend top-nav ."
@@ -50,7 +52,7 @@ body {
 }
 
 .mobile-btn:hover {
-    border: 2px solid #4b4f52;
+    border: 2px solid var(--tertiary-bg-color);
 }
 
 
@@ -108,11 +110,11 @@ header {
 }
 
 header h1 {
-    margin: 0.3em 0 0.2em 0;
+    margin: 0;
 }
 
 .header-btn {
-    background-color: var(--secondary-bg-color);
+    background-color: var(--tertiary-bg-color);
     margin: 1rem 0 0 1rem;
     color: var(--main-txt-color);
     display: flex;
@@ -124,10 +126,6 @@ header h1 {
     border: 2px solid var(--secondary-bg-color);
     border-radius: 4px;
 
-}
-
-#toc-btn:hover {
-    border: 2px solid #4b4f52;
 }
 
 
@@ -204,7 +202,7 @@ a:focus, a:hover, .highl-txt, .highl-txt-obs {
 }
 
 #side-wrapper {
-    background: var(--secondary-bg-color);
+    background: var(--tertiary-bg-color);
     direction: rtl;
     overflow-y: scroll;
     scrollbar-color: var(--secondary-bg-color) var(--main-bg-color);
@@ -214,7 +212,7 @@ a:focus, a:hover, .highl-txt, .highl-txt-obs {
 }
 
 #toc-details {
-    background: var(--secondary-bg-color);
+    background: var(--tertiary-bg-color);
     direction: ltr;
     word-break: break-word;
 }
@@ -376,20 +374,20 @@ math {
 }
 
 .co {
-color: #93A1A1;
+    color: #93A1A1;
 }
 .ot {
-color: #A578;
+    color: #A578;
 }
 .al {
-color: #CB4B; font-weight: bold;
+    color: #CB4B; font-weight: bold;
 }
 .fu {
-color: #268B;
+    color: var(--highl-txt-color);
 }
 
 .er {
-color: #D30102; font-weight: bold;
+    color: #D30102; font-weight: bold;
 }
 
 /* /code highlight section */
