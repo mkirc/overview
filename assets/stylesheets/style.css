@@ -1,5 +1,6 @@
 :root {
     --side-nav-width: 20vw;
+    --outer-margin: 0.2em;
 }
 
 :root[color-mode="light"] {
@@ -35,30 +36,24 @@ body {
 
 #grid-container {
   display: grid;
-  grid-template-columns: var(--side-nav-width) auto 1vw;
-  grid-template-rows: 4em calc(100vh - 4.2em) 0.2em;
+  grid-template-rows: 4em calc(100vh - 4.2em) var(--outer-margin);
   gap: 0 0;
   grid-template-areas:
-    "legend top-nav ."
-    "side-nav main-content .";
+    ". legend top-nav ."
+    ". side-nav main-content .";
 }
 
 #grid-container[toc-visible="init"] {
-    grid-template-columns: var(--side-nav-width) auto 1vw;
+    grid-template-columns: var(--outer-margin) var(--side-nav-width) auto var(--outer-margin);
 }
 
 #grid-container[toc-visible="toggle"] {
-    grid-template-columns: 1vw auto 1vw;
+    grid-template-columns: var(--outer-margin) 0 auto var(--outer-margin);
 }
 
 header {
-    margin-left: 2rem;
-    grid-area: 1 / 1 / 2 / 3;
+    grid-area: 1 / 2 / 2 / 4;
     background-color: var(--main-bg-color);
-}
-
-header h1 {
-    margin: 0;
 }
 
 .header-btn {
@@ -81,13 +76,25 @@ header h1 {
 header > div {
     display: flex;
     flex-direction: row;
+    height: 100%;
 }
 
-header > div > div {
+header > div > div:first-child {
     display: flex;
     flex-direction: column;
     margin-right: auto;
+    margin-left: 1em;
     line-height: 1.2;
+}
+
+header > div > div:last-child {
+    display: flex;
+    flex-direction: row;
+    margin-right: 1em;
+}
+
+header h1 {
+    margin: 0.1rem 0 0 0 ;
 }
 
 #commit-msg {
@@ -209,12 +216,15 @@ a:focus, a:hover, .highl-txt, .highl-txt-obs {
 
 #side-wrapper {
     background: var(--tertiary-bg-color);
+    grid-area: side-nav;
+    padding-top: 1em;
+}
+
+#side-wrapper > div {
     direction: rtl;
     overflow-y: scroll;
     scrollbar-color: var(--secondary-bg-color) var(--main-bg-color);
-    grid-area: side-nav;
-    margin: 0 0 0 1vw;
-    padding-top: 1em;
+    height: 100%;
 }
 
 #toc-details {
@@ -411,10 +421,10 @@ table {
     }
 
     #grid-container[toc-visible="init"] {
-        grid-template-columns: 1vw auto 1vw;
+        grid-template-columns: var(--outer-margin) 0 auto var(--outer-margin);
     }
 
     #grid-container[toc-visible="toggle"] {
-        grid-template-columns: var(--side-nav-width) auto 1vw;
+        grid-template-columns: var(--outer-margin) var(--side-nav-width) auto var(--outer-margin);
     }
 }
