@@ -1,11 +1,12 @@
 
 window.addEventListener("load", (event) => {
-  // creates a list of headline elements. The attribute
-  // data-number  
-  let hl_elms = document.querySelectorAll('[data-number]');
+        // creates a list of headline elements. All pandoc generated
+        // headlines have the attribute 'data-number'
 
-  createObserver(hl_elms);
-}, false);
+        let hl_elms = document.querySelectorAll('[data-number]');
+
+        createObserver(hl_elms);
+    }, false);
 
 function createObserver(elements) {
   let observer;
@@ -57,6 +58,7 @@ function handleIntersect(entries, observer) {
 
         highlightTOCElements(current.id);
         scrollTOCToElementID(current.id);
+        updateHistoryFragment(current.id);
 
         previous = current;
     }
@@ -66,7 +68,7 @@ function handleIntersect(entries, observer) {
 
 function highlightTOCElements(elmId) {
 
-    let elm = getTOCLinkForId(elmId); 
+    let elm = getTOCLinkForId(elmId);
 
     elm.classList.add("highl-txt-obs");
 
@@ -83,7 +85,7 @@ function highlightTOCElements(elmId) {
 
 function unhighlightTOCElements(elmId) {
 
-    let elm = getTOCLinkForId(elmId); 
+    let elm = getTOCLinkForId(elmId);
 
     elm.classList.remove("highl-txt-obs");
 
@@ -118,18 +120,11 @@ function isVisible(entry) {
     return false
 }
 
-function visibleInUpperQuarter(entry) {
-    let elm = entry.target;
-    let main_elm = document.getElementById('main-content');
-
-    let elm_y = entry.boundingClientRect.y
-
-    if (
-        (elm_y - main_elm.offsetTop) / main_elm.offsetHeight <= 0.25
-        && (elm_y - main_elm.offsetTop >= 0)
-    ) {
-        return true
-    }
+function scrollTOCToElementID(elmId) {
+    let elm = getTOCLinkForId(elmId);
+    elm.scrollIntoView(
+        { behavior: "smooth", block: "start" }
+    );
 }
 
 function getTOCLinkForId(id) {
@@ -137,10 +132,24 @@ function getTOCLinkForId(id) {
     return document.querySelector(selector)
 }
 
-function scrollTOCToElementID(elmId) {
-    let elm = getTOCLinkForId(elmId); 
-    elm.scrollIntoView(
-        { behavior: "smooth", block: "start" }
-    );
+function updateHistoryFragment(elmId) {
+
+    const url = window.location.pathname + "#" + elmId;
+    history.replaceState(null, '', url);
+
 }
+
+// function visibleInUpperQuarter(entry) {
+//     let elm = entry.target;
+//     let main_elm = document.getElementById('main-content');
+
+//     let elm_y = entry.boundingClientRect.y
+
+//     if (
+//         (elm_y - main_elm.offsetTop) / main_elm.offsetHeight <= 0.25
+//         && (elm_y - main_elm.offsetTop >= 0)
+//     ) {
+//         return true
+//     }
+// }
 
