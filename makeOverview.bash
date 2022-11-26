@@ -17,7 +17,7 @@ set_default_arguments() {
 
 run_pandoc(){
 
-    pandoc --from markdown_github+smart+yaml_metadata_block+auto_identifiers+tex_math_single_backslash+tex_math_dollars "$_arg_md_file_path" \
+    pandoc --from markdown_github+grid_tables+smart+yaml_metadata_block+auto_identifiers+tex_math_single_backslash+tex_math_dollars "$_arg_md_file_path" \
         --to=html5 \
         -o "$_arg_outfile" \
         --template="$basePath"/assets/templates/page.html \

@@ -23,7 +23,7 @@
 
 html, body {
     font-family: Roboto, sans-serif;
-    font-size: large;
+    font-size: 16px;
     line-height: 1.5;
     font-weight: 400;
 }
@@ -218,6 +218,7 @@ a:focus, a:hover, .highl-txt, .highl-txt-obs {
     background: var(--tertiary-bg-color);
     grid-area: side-nav;
     padding-top: 1em;
+    font-size: 90%;
 }
 
 #side-wrapper > div {
@@ -411,6 +412,10 @@ math {
 
 table {
     margin: 0 auto;
+}
+
+td {
+    border: 1px solid var(--main-txt-color);
 }
 
 
