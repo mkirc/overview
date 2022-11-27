@@ -10,8 +10,13 @@ Usage:
 
 bash /path/to/makeOverview.bash <your md file> [-o,--outfile your-file.html]
 
-Hat tip to https://argbash.io. This project uses argbash-utilities
-to generate its command line options and help message.
+This project would be nothing without its components:
+
+* https://pandoc.org, the swiss army knife of document generation (and more)
+
+* https://temml.org, lightweight in size, impressive in support of tex functions
+
+* https://argbash.io, the go-to command line options and help message generator for bash
 
 
 enjoy!
