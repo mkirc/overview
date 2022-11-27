@@ -163,6 +163,10 @@ img {
     margin: 1em auto;
 }
 
+figcaption[aria-hidden="true"] {
+    display: none;
+}
+
 #top-img {
     grid-area: top-nav;
     margin-left: auto;
@@ -331,16 +335,10 @@ blockquote > p {
     margin-left: 0;
 }
 
-/* MathJax section */
-
-
-mjx-container[display="block"] {
-  display: block;
-  margin: 1em 0;
-}
+/* math section */
 
 math {
-    font-weight: bold;
+    font-size: large;
 }
 
 /* code highlight section */
