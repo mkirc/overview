@@ -24,6 +24,7 @@ run_pandoc(){
         -V basepath="$basePath" \
         --katex\
         --standalone\
+        --embed-resources\
         --metadata date="$(date)" \
         --metadata author="$USER" \
         --metadata title=${_arg_md_file_path%%.*} \
