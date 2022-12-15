@@ -294,19 +294,24 @@ a:focus, a:hover, .highl-txt, .highl-txt-obs {
     border: 1px solid darkcyan;
     font-weight: bold;
     margin-bottom: 1em !important;
-}
-
-
-#main-content h1 {
-    text-align: center;
+    max-width: fit-content;
 }
 
 #main-content pre {
     margin: auto;
 }
 
-#main-content p, #main-content ul, #main-content ol {
-    margin: 0 2em;
+#main-content p {
+    margin: 0 auto;
+}
+
+#main-content ul, #main-content ol {
+    padding-left: 20%;
+    max-width: 75%;
+}
+
+#main-content ul p, #main-content ol p {
+    margin: unset;
 }
 
 #toMain {
