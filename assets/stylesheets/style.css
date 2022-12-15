@@ -21,6 +21,10 @@
     --highl-def-color: darkslategrey;
 }
 
+:root[color-mode=dark] figure {
+    filter: invert(90%);
+}
+
 html, body {
     font-family: Cambria Math, sans-serif;
     font-size: 16px;
