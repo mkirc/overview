@@ -9,7 +9,7 @@
     --tertiary-bg-color: white;
     --main-txt-color: #444;
     --highl-txt-color: mediumaquamarine;
-    --highl-def-color: aquamarine;
+    --highl-def-color: #D3F0E2;
 }
 
 :root[color-mode="dark"] {
@@ -22,7 +22,7 @@
 }
 
 html, body {
-    font-family: Roboto, sans-serif;
+    font-family: Cambria Math, sans-serif;
     font-size: 16px;
     line-height: 1.5;
     font-weight: 400;
@@ -341,6 +341,11 @@ math {
     font-size: large;
 }
 
+mtext {
+    font-family: Cambria Math, sans-serif;
+    font-size: initial;
+}
+
 /* code highlight section */
 
 .sourceCode > a {
@@ -410,10 +415,22 @@ math {
 
 table {
     margin: 0 auto;
+    background-color: var(--main-bg-color);
+    border-spacing: 0px;
+    border-collapse: collapse;
+    border: thin solid var(--main-txt-color);
+}
+
+tr.odd {
+    background-color: var(--tertiary-bg-color);
+}
+
+td, th {
+    padding: 0.5rem;
 }
 
 td {
-    border: 1px solid var(--main-txt-color);
+    border: thin solid var(--main-txt-color);
 }
 
 
