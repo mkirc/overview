@@ -335,8 +335,8 @@ a:focus, a:hover, .highl-txt, .highl-txt-obs {
 }
 
 blockquote {
-    border-left: 1px solid var(--main-txt-color);
-    margin-left: 3rem;
+    font-style: italic;
+    margin-left: 4rem;
 }
 
 blockquote > p {
