@@ -41,8 +41,6 @@ run_pandoc(){
 
 main() {
     set_default_arguments
-    echo "$_arg_outfile $_arg_author $_arg_title"
-    exit
     run_pandoc
 }
 
