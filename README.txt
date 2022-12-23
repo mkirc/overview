@@ -1,14 +1,18 @@
 This is a handy little utility for producing
-mathjax-supported html from markdown.
-I use it for writing summaries of lectures.
+html + mathml documents from markdown enhanced with latex using
+a fine tuned template and pandoc's '--standalone' feature.
+I use it for writing lecture summaries.
 
-Installation: clone this repo.
-You can also add it into your $PATH or just make an
-alias overview="bash path/to/makeOverview.bash".
+Installation:
+
+clone this repo.
+You can also add it to your $PATH or just make an
+`alias overview="bash path/to/makeOverview.bash"`.
+
 
 Usage:
 
-bash /path/to/makeOverview.bash <your md file> [-o,--outfile your-file.html]
+`bash /path/to/makeOverview.bash <your md file> [-o,--outfile your-file.html]`
 
 This project would be nothing without its components:
 
@@ -20,5 +24,6 @@ This project would be nothing without its components:
 
 * https://argbash.dev, the go-to command line options and help message generator for bash [v2.10.0]
 
+You may be interested in the corresponding [vim plugin](https://github.com/mkirc/vim-overview.git).
 
 enjoy!
