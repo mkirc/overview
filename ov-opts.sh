@@ -2,6 +2,8 @@
 
 # Created by argbash-init v2.10.0
 # ARG_OPTIONAL_SINGLE([outfile],[o],[Path of output html file])
+# ARG_OPTIONAL_SINGLE([title],[t],[Title of document])
+# ARG_OPTIONAL_SINGLE([author],[a],[Author of document])
 # ARG_POSITIONAL_SINGLE([md-file-path],[Path of input markdown file])
 # ARG_DEFAULTS_POS([])
 # ARG_HELP([<Auto generated help message.>])
@@ -23,7 +25,7 @@ die()
 
 begins_with_short_option()
 {
-	local first_option all_short_options='oh'
+	local first_option all_short_options='otah'
 	first_option="${1:0:1}"
 	test "$all_short_options" = "${all_short_options/$first_option/}" && return 1 || return 0
 }
@@ -33,14 +35,18 @@ _positionals=()
 _arg_md_file_path=
 # THE DEFAULTS INITIALIZATION - OPTIONALS
 _arg_outfile=
+_arg_title=
+_arg_author=
 
 
 print_help()
 {
 	printf '%s\n' "<Auto generated help message.>"
-	printf 'Usage: %s [-o|--outfile <arg>] [-h|--help] <md-file-path>\n' "$0"
+	printf 'Usage: %s [-o|--outfile <arg>] [-t|--title <arg>] [-a|--author <arg>] [-h|--help] <md-file-path>\n' "$0"
 	printf '\t%s\n' "<md-file-path>: Path of input markdown file"
-	printf '\t%s\n' "-o, --outfile: Path of output html file (no default)"
+	printf '\t%s\n' "-o, --outfile: Path of output html file (defaults to name of infile under its path)"
+	printf '\t%s\n' "-t, --title: Title of document (defaults to filename of infile)"
+	printf '\t%s\n' "-a, --author: Author of document (defaults to \$USER)"
 	printf '\t%s\n' "-h, --help: Prints help"
 }
 
@@ -62,6 +68,28 @@ parse_commandline()
 				;;
 			-o*)
 				_arg_outfile="${_key##-o}"
+				;;
+			-t|--title)
+				test $# -lt 2 && die "Missing value for the optional argument '$_key'." 1
+				_arg_title="$2"
+				shift
+				;;
+			--title=*)
+				_arg_title="${_key##--title=}"
+				;;
+			-t*)
+				_arg_title="${_key##-t}"
+				;;
+			-a|--author)
+				test $# -lt 2 && die "Missing value for the optional argument '$_key'." 1
+				_arg_author="$2"
+				shift
+				;;
+			--author=*)
+				_arg_author="${_key##--author=}"
+				;;
+			-a*)
+				_arg_author="${_key##-a}"
 				;;
 			-h|--help)
 				print_help

@@ -12,6 +12,12 @@ set_default_arguments() {
     elif [[ -z "$_arg_outfile" ]]; then
         _arg_outfile="$(pwd)"/"${_arg_md_file_path/%.*/.html}"
     fi
+    if [[ -z "$_arg_title" ]]; then
+        _arg_title=${_arg_md_file_path%%.*}
+    fi
+    if [[ -z "$_arg_author" ]]; then
+        _arg_author="$USER"
+    fi
 
 }
 
@@ -26,8 +32,8 @@ run_pandoc(){
         --standalone\
         --embed-resources\
         --metadata date="$(date)" \
-        --metadata author="$USER" \
-        --metadata title=${_arg_md_file_path%%.*} \
+        --metadata author="$_arg_author" \
+        --metadata title="$_arg_title" \
         --toc \
         --number-sections
 
@@ -35,6 +41,8 @@ run_pandoc(){
 
 main() {
     set_default_arguments
+    echo "$_arg_outfile $_arg_author $_arg_title"
+    exit
     run_pandoc
 }
 
