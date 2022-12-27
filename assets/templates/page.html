@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="$basepath$/assets/js/Temml-0.9.0/dist/Temml-Local.css">
     <script src="$basepath$/assets/js/Temml-0.9.0/dist/temml.min.js"></script>
-    <script src="$basepath$/assets/js/Temml-0.9.0/contrib/auto-render/dist/auto-render.min.js"></script>
+    <script src="$basepath$/assets/js/temml-loader.js" type="text/javascript"></script>
 
     <link rel="stylesheet" href="$basepath$/assets/stylesheets/base.css" type="text/css" />
     <link rel="stylesheet" href="$basepath$/assets/stylesheets/style.css" type="text/css" />
@@ -98,12 +98,22 @@ $body$
 $for(include-after)$
 $include-after$
 $endfor$
+
+
+</br>
+</br>
+</br>
+</br>
+</br>
+$if(author)$
+<small>&#127279; $author$ 2022</small>
+$endif$
+
 </div>
 </section>
     </div>
   </body>
 </html>
 
-<script src="$basepath$/assets/js/temml-loader.js" type="text/javascript"></script>
 <script src="$basepath$/assets/js/overview.js" type="text/javascript"></script>
 <script src="$basepath$/assets/js/observer.js" type="text/javascript"></script>

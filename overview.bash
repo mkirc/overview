@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-basePath="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+_base_path="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 # source command line options
-. "$basePath"/ov-opts.sh
+. "$_base_path"/ov-opts.sh
 
 set_default_arguments() {
 
@@ -26,8 +26,8 @@ run_pandoc(){
     pandoc --from markdown+grid_tables+smart+yaml_metadata_block+auto_identifiers+tex_math_single_backslash+tex_math_dollars "$_arg_md_file_path" \
         --to=html5 \
         -o "$_arg_outfile" \
-        --template="$basePath"/assets/templates/page.html \
-        -V basepath="$basePath" \
+        --template="$_base_path"/assets/templates/page.html \
+        -V basepath="$_base_path" \
         --katex\
         --standalone\
         --embed-resources\
