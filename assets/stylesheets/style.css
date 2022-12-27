@@ -296,7 +296,6 @@ a:focus, a:hover, .highl-txt, .highl-txt-obs {
     color: var(--main-txt-color);
     padding: 1em;
     border: 1px solid darkcyan;
-    font-weight: bold;
     margin-bottom: 1em !important;
     max-width: fit-content;
 }
@@ -455,19 +454,5 @@ td {
 
     #grid-container[toc-visible="toggle"] {
         grid-template-columns: var(--outer-margin) var(--side-nav-width) auto var(--outer-margin);
-    }
-}
-
-@media only screen and (max-width: 700px) {
-    :root {
-        --side-nav-width: calc(100vw - 2*var(--outer-margin));
-    }
-
-    #grid-container[toc-visible="init"] {
-        grid-template-columns: var(--outer-margin) 0 auto var(--outer-margin);
-    }
-
-    #grid-container[toc-visible="toggle"] {
-        grid-template-columns: var(--outer-margin) var(--side-nav-width) 0 var(--outer-margin);
     }
 }
