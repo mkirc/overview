@@ -20,9 +20,9 @@ function setInitialColorScheme() {
 
 function attachTocMouseEventListeners() {
 
-    const sideBarUls = document.querySelectorAll('#toc-details ul');
+    const tocUls = document.querySelectorAll('#toc-details ul');
 
-    sideBarUls.forEach((elm, idx) => {
+    tocUls.forEach((elm, idx) => {
         if (idx > 0) {
             elm.addEventListener('mouseover', function(e) {
                 elm.previousElementSibling.classList.add("highl-txt");
@@ -62,11 +62,11 @@ function toggleColorScheme() {
 
 function repaintAllTocULs() {
 
-    const sideBarLinks = document.querySelectorAll("#toc-details a");
+    const tocLinks = document.querySelectorAll("#toc-details a");
     const root = document.querySelector(':root');
     let rs = getComputedStyle(root);
 
-    sideBarLinks.forEach((elm, idx) => {
+    tocLinks.forEach((elm, idx) => {
         elm.style.color = rs.getPropertyValue('--main-txt-color');
     });
 }
