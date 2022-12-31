@@ -308,7 +308,7 @@ a:focus, a:hover, .highl-txt, .highl-txt-obs {
 }
 
 #main-content > div {
-    padding: 1rem;
+    padding: 1em 2em;
     min-width: 0;
     /* overflow: hidden; */
 }
