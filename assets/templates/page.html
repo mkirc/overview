@@ -31,7 +31,7 @@
 
   <body>
 
-    <div id="grid-container" toc-visible="init">
+    <div id="grid-container" toc-visible="init" defs-visible="init">
     <header>
         <div>
             <div>
@@ -46,8 +46,8 @@
                 </div>
             </div>
             <div>
-                <button class="header-btn" 
-                    id="toggle-color" 
+                <button class="header-btn"
+                    id="toggle-color"
                     onclick="toggleColorScheme()">
                     &#128161;
                 </button>
@@ -55,6 +55,11 @@
                         class="header-btn"
                         onClick="toggleTOC()">
                     &#128214;
+                </button>
+                <button id="def-btn"
+                        class="header-btn"
+                        onClick="toggleDefinitions()">
+                    def
                 </button>
             </div>
         </div>
@@ -66,28 +71,25 @@
     </section>
     $endif$
 
-    $if(image)$
-        <img id="top-img" src="../assets/images/$image$" />
-    $endif$
+<section id="toc-wrapper" class="mobile-collapse">
+    <div>
+        $if(toc)$
+        <div id="toc-details">
+          $toc$
+        </div>
+        $endif$
 
-    $topNav$
+        $sideNav$
+    </div>
+</section>
 
-    <div id="side-wrapper" class="mobile-collapse">
-        <button class="mobile-btn"
-            id="menu-close"
-            onclick="mobileMenuClose()">
-            &times;
-        </button>
-        <div>
-            $if(toc)$
-            <div id="toc-details">
-              $toc$
-            </div>
-            $endif$
-
-            $sideNav$
+<section id="defs-wrapper">
+    <div>
+        <div id="definitions">
+            <ul></ul>
         </div>
     </div>
+</section>
 
 <section id="main-content">
 <div>
