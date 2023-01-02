@@ -25,6 +25,22 @@
     filter: invert(90%);
 }
 
+:root[color-mode=dark] #btn-sym-light {
+    display: none;
+}
+
+:root[color-mode=light] #btn-sym-light {
+    display: block;
+}
+
+:root[color-mode=dark] #btn-sym-dark {
+    display: block;
+}
+
+:root[color-mode=light] #btn-sym-dark {
+    display: none;
+}
+
 html, body {
     font-family: Cambria Math, sans-serif;
     font-size: 16px;
@@ -256,11 +272,14 @@ a:focus, a:hover, .highl-txt, .highl-txt-obs {
     list-style-type: none;
 }
 
+#toc-details a {
+    text-decoration: none;
+}
 
 #toc-details a:hover + ul {
     color: var(--highl-txt-color);
 }
- 
+
 #defs-wrapper {
     background: var(--tertiary-bg-color);
     grid-area: right-side-bar;
