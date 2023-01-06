@@ -28,6 +28,7 @@ run_pandoc(){
         -o "$_arg_outfile" \
         --template="$_base_path"/assets/templates/page.html \
         -V basepath="$_base_path" \
+        -V additional-js="$_arg_additional_js" \
         --katex\
         --standalone\
         --embed-resources\

@@ -4,6 +4,7 @@
 # ARG_OPTIONAL_SINGLE([outfile],[o],[Path of output html file])
 # ARG_OPTIONAL_SINGLE([title],[t],[Title of document])
 # ARG_OPTIONAL_SINGLE([author],[a],[Author of document])
+# ARG_OPTIONAL_SINGLE([additional-js],[],[Additional JS])
 # ARG_POSITIONAL_SINGLE([md-file-path],[Path of input markdown file])
 # ARG_DEFAULTS_POS([])
 # ARG_HELP([<Auto generated help message.>])
@@ -37,16 +38,18 @@ _arg_md_file_path=
 _arg_outfile=
 _arg_title=
 _arg_author=
+_arg_additional_js=
 
 
 print_help()
 {
 	printf '%s\n' "<Auto generated help message.>"
-	printf 'Usage: %s [-o|--outfile <arg>] [-t|--title <arg>] [-a|--author <arg>] [-h|--help] <md-file-path>\n' "$0"
+	printf 'Usage: %s [-o|--outfile <arg>] [-t|--title <arg>] [-a|--author <arg>] [--additional-js <arg>] [-h|--help] <md-file-path>\n' "$0"
 	printf '\t%s\n' "<md-file-path>: Path of input markdown file"
-	printf '\t%s\n' "-o, --outfile: Path of output html file (defaults to name of infile under its path)"
-	printf '\t%s\n' "-t, --title: Title of document (defaults to filename of infile)"
-	printf '\t%s\n' "-a, --author: Author of document (defaults to \$USER)"
+	printf '\t%s\n' "-o, --outfile: Path of output html file (no default)"
+	printf '\t%s\n' "-t, --title: Title of document (no default)"
+	printf '\t%s\n' "-a, --author: Author of document (no default)"
+	printf '\t%s\n' "--additional-js: Additional JS (no default)"
 	printf '\t%s\n' "-h, --help: Prints help"
 }
 
@@ -90,6 +93,14 @@ parse_commandline()
 				;;
 			-a*)
 				_arg_author="${_key##-a}"
+				;;
+			--additional-js)
+				test $# -lt 2 && die "Missing value for the optional argument '$_key'." 1
+				_arg_additional_js="$2"
+				shift
+				;;
+			--additional-js=*)
+				_arg_additional_js="${_key##--additional-js=}"
 				;;
 			-h|--help)
 				print_help
