@@ -19,12 +19,9 @@
     <meta name="keywords" content="$for(tags)$$tags$$sep$, $endfor$">
     $endif$
     <meta property="og:type" content="website" />
-
-
     <link rel="stylesheet" href="$basepath$/assets/js/Temml-0.9.0/dist/Temml-Local.css">
     <script src="$basepath$/assets/js/Temml-0.9.0/dist/temml.min.js"></script>
     <script src="$basepath$/assets/js/temml-loader.js" type="text/javascript"></script>
-
     <link rel="stylesheet" href="$basepath$/assets/stylesheets/base.css" type="text/css" />
     <link rel="stylesheet" href="$basepath$/assets/stylesheets/style.css" type="text/css" />
   </head>
@@ -32,65 +29,65 @@
   <body>
 
     <div id="grid-container" toc-visible="init" defs-visible="init">
-    <header>
+      <header>
         <div>
+          <div>
+            <h1>$title$</h1>
             <div>
-                <h1>$title$</h1>
-                <div>
-                    $if(author)$
-                    <small>$author$</small>
-                    $endif$
-                    <time>
-                        <small>$date$</small>
-                    </time>
-                </div>
+              $if(author)$
+              <small>$author$</small>
+              $endif$
+              <time>
+                <small>$date$</small>
+              </time>
             </div>
-            <div>
-                <button class="header-btn"
+          </div>
+          <div>
+            <button class="header-btn"
                     id="toggle-color"
                     onclick="toggleColorScheme()">
-                    <div id="btn-sym-dark">&#128262;</div>
-                    <div id="btn-sym-light">&#127762;</div>
-                </button>
-                <button id="toc-btn"
-                        class="header-btn"
-                        onClick="toggleTOC()">
-                    &#128366;
-                </button>
-                <button id="def-btn"
-                        class="header-btn"
-                        onClick="toggleDefinitions()">
-                    &#8797;
-                </button>
-            </div>
+              <div id="btn-sym-dark">&#128262;</div>
+              <div id="btn-sym-light">&#127762;</div>
+            </button>
+            <button id="toc-btn"
+                    class="header-btn"
+                    onClick="toggleTOC()">
+              &#128366;
+            </button>
+            <button id="def-btn"
+                    class="header-btn"
+                    onClick="toggleDefinitions()">
+              &#8797;
+            </button>
+          </div>
         </div>
-    </header>
+      </header>
 
-    $if(commitmsg)$
-    <section id="commit-msg">
+      $if(commitmsg)$
+      <section id="commit-msg">
         <q>$commitmsg$</q>
-    </section>
-    $endif$
+      </section>
+      $endif$
 
-<section id="toc-wrapper" class="mobile-collapse">
-    <div>
-        $if(toc)$
-        <div id="toc-details">
-          $toc$
+      <section id="toc-wrapper" class="mobile-collapse">
+        <div>
+          $if(toc)$
+          <div id="toc-details">
+            $toc$
+          </div>
+          $endif$
+
+          $sideNav$
         </div>
-        $endif$
+      </section>
 
-        $sideNav$
-    </div>
-</section>
-
-<section id="defs-wrapper">
-    <div>
-        <div id="definitions">
+      <section id="defs-wrapper">
+        <div>
+          <div id="definitions">
             <ul></ul>
+          </div>
         </div>
-    </div>
-</section>
+      </section>
 
 <section id="main-content">
 <div>
@@ -114,8 +111,8 @@ $endif$
 
 </div>
 </section>
-    </div>
-  </body>
+</div>
+</body>
 </html>
 
 <script src="$basepath$/assets/js/overview.js" type="text/javascript"></script>
