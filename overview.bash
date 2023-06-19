@@ -13,7 +13,7 @@ set_default_arguments() {
 
     elif [[ -z "$_arg_outfile" ]]; then
 
-        _arg_outfile="$(pwd)"/"${_arg_md_file_path%.*}.html"
+        _arg_outfile="$(pwd)/${_arg_md_file_path%.*}.html"
     fi
     if [[ -z "$_arg_title" ]]; then
 
