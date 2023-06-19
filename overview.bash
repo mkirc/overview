@@ -8,15 +8,21 @@ _base_path="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 set_default_arguments() {
 
     if [[ -z "$_arg_md_file_path" ]]; then
+
         _PRINT_HELP=yes die
+
     elif [[ -z "$_arg_outfile" ]]; then
-        _arg_outfile="$(pwd)"/"${_arg_md_file_path/%.*/.html}"
+
+        _arg_outfile="$(pwd)"/"${_arg_md_file_path%.*}.html"
     fi
     if [[ -z "$_arg_title" ]]; then
-        _arg_title=${_arg_md_file_path%%.*}
+
+        _arg_title=${_arg_md_file_path%.*}
     fi
     if [[ -z "$_arg_author" ]]; then
+
         _arg_author="$USER"
+
     fi
 
 }
