@@ -29,7 +29,18 @@ set_default_arguments() {
 
 run_pandoc(){
 
-    pandoc --from markdown+grid_tables+smart+yaml_metadata_block+auto_identifiers+tex_math_single_backslash+tex_math_dollars "$_arg_md_file_path" \
+    local PANDOC_OPTS
+
+    printf -v PANDOC_OPTS '%s' \
+        'markdown+' \
+        'grid_tables+' \
+        'smart+' \
+        'yaml_metadata_block+' \
+        'auto_identifiers+' \
+        'tex_math_single_backslash+' \
+        'tex_math_dollars'
+
+    pandoc --from "$PANDOC_OPTS" "$_arg_md_file_path" \
         --to=html5 \
         -o "$_arg_outfile" \
         --template="$_base_path"/assets/templates/page.html \
