@@ -1,6 +1,7 @@
 :root {
   --outer-margin: 0.2em;
   --main-content-width: auto;
+  --character-width: 88ch;
 }
 
 :root[color-mode="light"] {
@@ -141,14 +142,16 @@ header h1 {
 
 
 p {
-  max-width: 80ch;
+  max-width: var(--character-width);
   padding: 4px;
 }
 
-
-
 ul {
   padding-left: 1em;
+}
+
+li {
+  max-width: var(--character-width);
 }
 
 li p {
