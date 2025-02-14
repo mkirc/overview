@@ -150,10 +150,6 @@ ul {
   padding-left: 1em;
 }
 
-li {
-  max-width: var(--character-width);
-}
-
 li p {
   margin-left: 0px !important;
 }
@@ -337,7 +333,6 @@ a:focus, a:hover, .highl-txt, .highl-txt-obs {
 
 .definition {
   background-color: var(--highl-def-color);
-  text-align: center;
   color: var(--main-txt-color);
   padding: 1em;
   border: 1px solid darkcyan;
@@ -354,8 +349,8 @@ a:focus, a:hover, .highl-txt, .highl-txt-obs {
 }
 
 #main-content ul, #main-content ol {
-  padding-left: 20%;
-  max-width: 75%;
+  padding-left: 10%;
+  max-width: var(--character-width);
 }
 
 #main-content ul p, #main-content ol p {
