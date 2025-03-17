@@ -1,0 +1,15 @@
+#left-panel {
+  background: var(--tertiary-bg-color);
+  grid-area: left-panel;
+  padding-top: 1em;
+  font-size: 90%;
+}
+
+#right-panel {
+  background: var(--tertiary-bg-color);
+  grid-area: right-panel;
+  padding-top: 1em;
+  font-size: 90%;
+}
+
+

@@ -1,0 +1,38 @@
+.definition {
+  background-color: var(--highl-def-color);
+  color: var(--main-txt-color);
+  padding: 1em;
+  border: 1px solid darkcyan;
+  margin-bottom: 1em !important;
+  max-width: fit-content;
+}
+
+#defs-wrapper > div {
+  direction: rtl;
+  overflow-y: scroll;
+  scrollbar-color: var(--secondary-bg-color) var(--main-bg-color);
+  height: 100%;
+}
+
+#definitions {
+  background: var(--tertiary-bg-color);
+  direction: ltr;
+  word-break: break-word;
+}
+
+#definitions ul {
+  margin: unset;
+  list-style-type: none;
+}
+
+#definitions li {
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+#definitions li:hover {
+  color: var(--highl-txt-color);
+}
+
+

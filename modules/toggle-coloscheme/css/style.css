@@ -1,0 +1,39 @@
+:root[color-mode="light"] {
+  --main-bg-color: #E7E9EB;
+  --secondary-bg-color: whitesmoke;
+  --tertiary-bg-color: white;
+  --main-txt-color: #444;
+  --highl-txt-color: mediumaquamarine;
+  --highl-def-color: #D3F0E2;
+}
+
+:root[color-mode="dark"] {
+  --main-bg-color: #333;
+  --secondary-bg-color: #444;
+  --tertiary-bg-color: #555;
+  --main-txt-color: whitesmoke;
+  --highl-txt-color: aquamarine;
+  --highl-def-color: darkslategrey;
+}
+
+:root[color-mode=dark] figure {
+  filter: invert(90%);
+}
+
+:root[color-mode=dark] #btn-sym-light {
+  display: none;
+}
+
+:root[color-mode=light] #btn-sym-light {
+  display: block;
+}
+
+:root[color-mode=dark] #btn-sym-dark {
+  display: block;
+}
+
+:root[color-mode=light] #btn-sym-dark {
+  display: none;
+}
+
+

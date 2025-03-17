@@ -1,0 +1,26 @@
+#toc-wrapper > div {
+  direction: rtl;
+  overflow-y: scroll;
+  scrollbar-color: var(--secondary-bg-color) var(--main-bg-color);
+  height: 100%;
+}
+
+#toc-details {
+  background: var(--tertiary-bg-color);
+  direction: ltr;
+  word-break: break-word;
+}
+
+#toc-details ul {
+  margin: unset;
+  list-style-type: none;
+}
+
+#toc-details a {
+  text-decoration: none;
+}
+
+#toc-details a:hover + ul {
+  color: var(--highl-txt-color);
+}
+
