@@ -1,3 +1,10 @@
+getKeys() {
+    # Args: [Name of Array: String]
+    # Returns: [String of Keys for Array: String|Int]
+    local -n ref="$1"
+    echo "${!ref[@]}"
+}
+
 all() {
     # Args: [Name of Array to act on: String] [Expression: String...]
     # Returns: [True if all calls to Expression evaluated to True, else False: Int]
@@ -174,9 +181,14 @@ zipped() {
     echo "${out[@]@Q}"
 }
 
-getKeys() {
-    # Args: [Name of Array: String]
-    # Returns: String of Keys for Array: String|Int]
-    local -n ref="$1"
-    echo "${!ref[@]}"
+zippedWithPrefix() {
+    local -i idx
+    local prefix="$1"
+    local -n mods_array="$2"
+
+    local -a prefix_array=()
+    for idx in $(getKeys mods_array); do
+        prefix_array+=("$prefix")
+    done
+    echo $(zipped prefix_array mods_array)
 }
